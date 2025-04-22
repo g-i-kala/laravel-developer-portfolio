@@ -1,7 +1,7 @@
 @props(['project'])
 
 <x-panel class="flex-col text-center">
-    <div class="self-start text-sm">{{ $project->developer->name }}</div>
+    <div class="self-start text-sm">{{ $project->developer->name ?? 'No Developer' }}</div>
 
     <div class="py-8">
         <h3 class="group-hover:text-blue-600 text-xl text-bold transition-colors duration-300">

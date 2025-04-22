@@ -61,7 +61,7 @@ class User extends Authenticatable
 
     public function developer(): HasOne
     {
-        return $this->hasOne(Employer::class);
+        return $this->hasOne(Developer::class);
     }
 
     public function ownsProject($project)

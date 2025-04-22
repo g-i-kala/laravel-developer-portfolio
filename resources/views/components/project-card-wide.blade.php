@@ -6,7 +6,7 @@
     </div>
     
     <div class="flex-1 flex flex-col ">
-        <a href="#" class="self-start text-sm text-gray-200">{{ $project->developer->name }}</a>
+        <a href="#" class="self-start text-sm text-gray-200">{{ $project->developer->name ?? 'No Developer' }}</a>
         <h3 class="font-bold text-xl mt-3 group-hover:text-blue-600 transition-colors duration-300">
             <a href="{{ $project->url }}" target="_blank">
                 {{ $project->title }}

@@ -2,8 +2,8 @@
     <x-page-heading>Results</x-page-heading>
 
     <div class="space-y-6">
-        @foreach ($jobs as $job)
-          <x-job-card-wide :$job />
+        @foreach ($projects as $project)
+          <x-project-card-wide :$project />
         @endforeach
     </div>
 </x-layout> 

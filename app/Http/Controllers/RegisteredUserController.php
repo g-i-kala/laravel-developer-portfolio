@@ -15,7 +15,7 @@ class RegisteredUserController extends Controller
      */
     public function index()
     {
-       //
+        //
     }
 
     /**
@@ -37,17 +37,30 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Password::min(6)],
         ]);
 
-        $employerAttributes = $request->validate([
-            'employer' => ['required'],
-            'logo' => ['required', File::types('png', 'jpg', 'webp')],
+        $developerAttributes = $request->validate([
+            'handle' => ['required'],
+            'title' => ['required'],
+            'bio' => ['required'],
+            'location' => ['required'],
+            'website' => ['required'],
+            'github' => ['required'],
+            'linkedin' => ['required'],
+            'avatar' => ['required', File::types('png', 'jpg', 'webp')],
         ]);
 
         $user = User::create($userAttributes);
-        $logoPath = $request->logo->store('logos');
-        
-        $user->employer()->create([
-            'name' => $employerAttributes['employer'],
-            'logo' => $logoPath,
+        $logoPath = $request->avatar->store('logos');
+
+        $user->developer()->create([
+            'full_name' => $userAttributes['name'],
+            'handle'   => $developerAttributes['handle'],
+            'title'    => $developerAttributes['title'],
+            'bio'      => $developerAttributes['bio'],
+            'location' => $developerAttributes['location'],
+            'website'  => $developerAttributes['website'],
+            'github'   => $developerAttributes['github'],
+            'linkedin' => $developerAttributes['linkedin'],
+            'avatar'     => $logoPath,
         ]);
 
         Auth::login($user);

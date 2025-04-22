@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400..600;1,100..900&display=swap" rel="stylesheet">
     @vite (['resources/js/app.js'])
 </head>
-<body class="bg-black text-white font-henken pb-20">
+<body class="bg-white text-black font-henken pb-20">
     <div class="wrapper px-10">
         <nav class="nav flex justify-between items-center p-4 border-b border-white/10">
             <div>
                 <a href="/" class="">
-                    <img src="{{ Vite::asset('resources/images/logo.jpg') }}" alt="site logo" class="w-[3rem]" />
+                    <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="site logo" class="w-[3rem]" />
                 </a>
             </div>
             <div class="space-x-6 font-bold">
@@ -26,8 +26,8 @@
             </div>
             @auth
                 <div class="flex space-x-6 font-bold">
-                    <a href="/jobs/show">My Jobs</a>
-                    <a href="/jobs/create">Post a Job</a>
+                    <a href="/projects/show">My Projects</a>
+                    <a href="/projects/create">Add a Project</a>
                     <form method="POST" action="/logout">
                         @csrf
                         @method("DELETE")
