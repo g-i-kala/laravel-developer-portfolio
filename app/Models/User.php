@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use \App\Models\Employer;
+use App\Models\Employer;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -55,6 +56,16 @@ class User extends Authenticatable
 
     public function ownsJob($job)
     {
-        return $this->employer && $this->employer->id === $job->employer_id; 
+        return $this->employer && $this->employer->id === $job->employer_id;
+    }
+
+    public function developer(): HasOne
+    {
+        return $this->hasOne(Employer::class);
+    }
+
+    public function ownsProject($project)
+    {
+        return $this->project && $this->developer->id === $project->developer_id;
     }
 }

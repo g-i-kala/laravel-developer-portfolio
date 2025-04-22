@@ -1,19 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JobController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\RegisteredUserController;
 
-Route::get('/', [JobController::class, 'index']);
-Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
-Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
-Route::get('/jobs/show', [JobController::class, 'show'])->middleware('auth');
-Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('auth');
-Route::post('/jobs/edit/{job}', [JobController::class, 'edit'])->middleware('auth');
-Route::patch('/jobs/update/{job}', [JobController::class, 'update'])->middleware('auth');
+Route::get('/', [ProjectController::class, 'index']);
+Route::get('/projects/create', [ProjectController::class, 'create'])->middleware('auth');
+Route::post('/projects', [ProjectController::class, 'store'])->middleware('auth');
+Route::get('/projects/show', [ProjectController::class, 'show'])->middleware('auth');
+Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->middleware('auth');
+Route::post('/projects/edit/{project}', [ProjectController::class, 'edit'])->middleware('auth');
+Route::patch('/projects/update/{project}', [ProjectController::class, 'update'])->middleware('auth');
 
 Route::get('/search', SearchController::class);
 Route::get('/tags/{tag:name}', TagController::class);
