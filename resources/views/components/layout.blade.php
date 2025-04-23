@@ -19,10 +19,10 @@
                 </a>
             </div>
             <div class="space-x-6 font-bold">
-                <a href="#">Job</a>
-                <a href="#">Carrers</a>
-                <a href="#">Saleries</a>
-                <a href="#">Companies</a>
+                <x-menu-item href="#">about</x-menu-item>
+                <x-menu-item href="#">skills</x-menu-item>
+                <x-menu-item href="#">projects</x-menu-item>
+                <x-menu-item href="#">contact</x-menu-item>
             </div>
             @auth
                 <div class="flex space-x-6 font-bold">
