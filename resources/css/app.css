@@ -9,7 +9,17 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-black: oklch(12.21% 0 0);
-    --font-henken: 'Hanken Grotesk', 'sans-serif';
+    --color-primary: oklch(47% 0.18 264);       /* Classic blue (Windows 95-ish) */
+    --color-secondary: oklch(47% 0.09 234);     /* Muted navy for contrast */
+    --color-accent: oklch(70% 0.25 40);         /* SQL orange - vibrant but soft */
+    --color-accent-dark: oklch(55% 0.19 35);    /* Deeper orange for hover/active */
+    --color-accent-alt: oklch(62% 0.20 310);    /* PHP violet - cool alt accent */
+    --color-bg-main: oklch(92% 0.01 260);       /* Light grey background */
+    --color-bg-light: oklch(97% 0.005 260);     /* Even lighter gray - almost white */
+    --color-text: oklch(20% 0 0);               /* Default text - near black */
+    --color-muted: oklch(50% 0.03 260);         /* Muted for subtext, labels */
+    --font-inter: 'Inter', 'sans-serif';
+    --font-space-grotesk: 'Space Grotesk', 'sans-serif';
+    --font-fira-code: 'Fira Code', 'serif';
     --text-2xs: 0.625rem;
 }

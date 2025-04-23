@@ -7,10 +7,10 @@
     <title>Pixel Positions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400..600;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     @vite (['resources/js/app.js'])
 </head>
-<body class="bg-white text-black font-henken pb-20">
+<body class="bg-bg-main text-text font-inter pb-20">
     <div class="wrapper px-10">
         <nav class="nav flex justify-between items-center p-4 border-b border-white/10">
             <div>
@@ -23,7 +23,10 @@
                 <x-menu-item href="#">skills</x-menu-item>
                 <x-menu-item href="#">projects</x-menu-item>
                 <x-menu-item href="#">contact</x-menu-item>
-            </div>
+            </div>            
+        </nav>
+
+        <div class="w-full text-right">
             @auth
                 <div class="flex space-x-6 font-bold">
                     <a href="/projects/show">My Projects</a>
@@ -31,20 +34,19 @@
                     <form method="POST" action="/logout">
                         @csrf
                         @method("DELETE")
-                         
-                        <button>Log Out</button> 
+            
+                        <button>Log Out</button>
                     </form>
-                </div>     
+                </div>
             @endauth
-
             @guest
                 <div class="space-x-6 font-bold">
-                    <a href="/register">Sign Up</a>
-                    <a href="/login">Log In</a>
+                    <x-link-button href="/register">Sign Up</x-link-button>
+                    <x-link-button href="/login">Log In</x-link-button>
                 </div>
             @endguest
-            
-        </nav>
+        </div>
+
         <div class="main mx-auto mt-10 max-w-[986px]">
             {{ $slot }}
         </div>

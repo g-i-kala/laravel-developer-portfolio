@@ -1,1 +1,1 @@
-<a {{ $attributes(['class' => 'inline-block bg-blue-800 rounded py-2 px-6 font-bold']) }}>{{ $slot }}</a>
+<a {{ $attributes(['class' => 'inline-block rounded py-2 px-2 font-bold transition duration-300 hover:text-primary']) }}>{{ $slot }}</a>

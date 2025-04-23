@@ -1,0 +1,1 @@
+<section id="hero" class="py-20 text-center">{{ $slot }}</section>
