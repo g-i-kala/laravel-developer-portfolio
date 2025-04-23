@@ -1,15 +1,15 @@
 <x-layout>
-    <x-forms.sections.section id="hero">
+    <x-sections.section id="hero">
         <h1 class="text-4xl font-bold">Hi, I’m Karo — Creative Full-Stack Developer</h1>
         <p class="text-xl mt-4 text-gray-600">From syntax to style, I build modern web experiences with Laravel, PHP & WordPress.</p>
         <div class="mt-6 flex justify-center gap-4">
             <a href="#projects" class="btn">View Projects</a>
             <a href="/resume.pdf" class="btn-secondary">Download Resume</a>
         </div>
-    </x-forms.sections.section>
+    </x-sections.section>
 
-    <x-forms.sections.section id="projects">
-        <x-forms.sections.h2>Featured Projects</x-forms.sections.h2>
+    <x-sections.section id="projects">
+        <x-sections.h2>Featured Projects</x-sections.h2>
         <p class="text-center mt-2 text-gray-600">Some of my latest and favorite builds.</p>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
@@ -20,7 +20,7 @@
             <a href="#" class="text-blue-600 font-medium">View GitHub →</a>
             </div>
         </div>
-    </x-forms.sections.section>
+    </x-sections.section>
 
     <section id="techstack" class="py-20">
         <h2 class="text-3xl font-bold text-center">Tech Stack</h2>
