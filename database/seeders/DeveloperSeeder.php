@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Skill;
+use App\Models\Developer;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DeveloperSeeder extends Seeder
 {
@@ -12,6 +14,12 @@ class DeveloperSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Developer::factory(10)
+            ->create()
+            ->each(function ($developer) {
+                // Attach 5 random skills to each developer
+                $skills = Skill::inRandomOrder()->limit(5)->get();  // Limit to 5 skills
+                $developer->skills()->attach($skills);
+            });
     }
 }
