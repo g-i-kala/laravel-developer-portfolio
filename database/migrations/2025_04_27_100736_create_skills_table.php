@@ -1,9 +1,9 @@
 <?php
 
-use App\Models\SkillsCategories;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\SkillCategory;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class () extends Migration {
     /**
@@ -14,7 +14,7 @@ return new class () extends Migration {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor((SkillsCategories::class));
+            $table->foreignIdFor((SkillCategory::class));
             $table->timestamps();
         });
     }

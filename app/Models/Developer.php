@@ -14,6 +14,7 @@ class Developer extends Model
 {
     /** @use HasFactory<\Database\Factories\DeveloperFactory> */
     use HasFactory;
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

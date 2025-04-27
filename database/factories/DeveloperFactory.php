@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\User;
+use App\Models\Skill;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,9 +19,12 @@ class DeveloperFactory extends Factory
      */
     public function definition(): array
     {
+        $user = User::factory()->create();
+        $skills = Skill::inRandomOrder()->take(5)->get();
+
         return [
-            'user_id'    => User::factory(),
-            'full_name'  => fn (array $attributes) => User::find($attributes['user_id'])->name,
+            'user_id'    => $user->id,
+            'full_name'  => $user->name,
             'handle'     => Str::slug(fake()->userName()),
             'title'      => fake()->jobTitle(),
             'bio'        => fake()->paragraph(3),
