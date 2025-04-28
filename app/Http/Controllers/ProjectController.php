@@ -23,9 +23,13 @@ class ProjectController extends Controller
     {
         $projects = Project::latest()->with(['developer', 'tags'])->get()->groupBy('featured');
 
+        $featuredProjects = $projects->get(1, collect());
+        $regularProjects = $projects->get(0, collect());
+
+
         return view('projects.index', [
-            'featuredProjects' => $projects[1],
-            'projects' => $projects[0], //paginate later
+            'featuredProjects' => $featuredProjects,
+            'projects' => $regularProjects, //paginate later
             'tags' => Tag::all(),
         ]);
     }

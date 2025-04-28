@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisteredUserController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/projects/index', [ProjectController::class, 'index'])->middleware('auth');
 Route::get('/projects/create', [ProjectController::class, 'create'])->middleware('auth');
 Route::post('/projects', [ProjectController::class, 'store'])->middleware('auth');
 Route::get('/projects/show', [ProjectController::class, 'show'])->middleware('auth');
@@ -25,7 +26,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisteredUserController::class, 'create']); //this group ->middleware('guest') for each route
     Route::post('/register', [RegisteredUserController::class, 'store']);
 
-    Route::get('/login', [SessionController::class, 'create']);
+    Route::get('/login', [SessionController::class, 'create'])->name('login');
     Route::post('/login', [SessionController::class, 'store']);
 });
 

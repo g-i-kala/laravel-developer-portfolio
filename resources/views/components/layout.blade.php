@@ -21,7 +21,9 @@
         <main id="content-wrapper" class="main mx-auto mt-10 max-w-[986px]">
             {{ $slot }}
         </main>
-    </div>
     <x-backtotop />
+    <x-footer />
+    </div>
+   
 </body>
 </html>

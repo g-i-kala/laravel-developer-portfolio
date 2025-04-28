@@ -3,7 +3,7 @@
         <section class="text-center pt-16">
             <h1 class="font-bold text-4xl">Let's Go Through My Projects </h1>
             <x-forms.form class="mt-6" action="/search">
-                <x-forms.input :label="false" name="q" placeholder="Web App..." />
+                <x-forms.input :label="false" name="q" placeholder="Tech Stack..." />
             </x-forms.form>
 
         </section>
