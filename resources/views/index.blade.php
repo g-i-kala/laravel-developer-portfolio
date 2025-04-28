@@ -11,15 +11,17 @@
     <x-sections.section id="projects">
         <x-sections.h2>Featured Projects</x-sections.h2>
         <p class="text-center mt-2 text-gray-600">Some of my latest and favorite builds.</p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            <!-- Repeat project cards -->
-            <div class="bg-white rounded shadow p-6">
-            <h3 class="font-semibold text-lg">Project Title</h3>
-            <p class="text-sm text-gray-500 mb-3">Short description of what this project does.</p>
-            <a href="#" class="text-blue-600 font-medium">View GitHub →</a>
+      
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
+          @foreach ($featuredProjects as $project )
+            <div class="bg-white flex flex-col justify-around rounded shadow p-6">
+              <h3 class="font-semibold text-lg">{{ $project->title }}</h3>
+              <p class="text-sm text-gray-500 mb-3">{{ substr($project->description, 0, 70) }}</p>
+              <a href="{{ $project->url_github }}" class="text-primary font-medium">View GitHub →</a>
             </div>
+          @endforeach
         </div>
+        <x-link-button href="/projects/index"> View all Projects </x-link-button>
     </x-sections.section>
 
     <section id="techstack" class="py-20">
@@ -35,7 +37,7 @@
         </ul>
       </section>
 
-      <section id="skills" class="py-20 bg-white border-t border-gray-300">
+      <section id="skills" class="py-20">
         <h2 class="text-3xl font-bold text-center mb-4">Skills & Toolset</h2>
         <p class="text-center text-gray-600 mb-12">Things I use to build, debug, and ship projects.</p>
       
@@ -105,7 +107,7 @@
       
       
 
-      <section id="about" class="py-20 bg-gray-50">
+      <section id="about" class="py-20">
         <h2 class="text-3xl font-bold text-center">About Me</h2>
         <p class="text-center mt-2 text-gray-600">I’m passionate about building creative and maintainable web systems.</p>
       
