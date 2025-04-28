@@ -1,10 +1,16 @@
 <x-layout>
     <x-sections.section id="hero">
-        <h1 class="text-4xl font-bold">Hi, I’m {{ $developer->full_name }} — Creative Full-Stack Developer</h1>
-        <p class="text-xl mt-4 text-gray-600">From syntax to style, I build modern web experiences with Laravel, PHP & WordPress.</p>
+        <h1 class="text-2xl font-bold">Hi, I’m {{ $developer->full_name }} </h1>
+        <h2 class="text-4xl font-bold">Creative Full-Stack Developer </h2>
+        
+        <div class="w-full sm:w-1/2 my-4">
+          <p class="text-xl mt-4 text-secondary text-left">From syntax to style, </p>
+            <p class="text-xl mt-4 text-secondary text-center">I build modern web experiences </p>
+              <p class="text-xl mt-4 text-secondary text-right">with Laravel, PHP & WordPress.</p>
+        </div>
         <div class="mt-6 flex justify-center gap-4">
-            <a href="#projects" class="btn">View Projects</a>
-            <a href="/resume/Ankiewicz_CV.pdf" class="btn-secondary">Download Resume</a>
+            <x-link-button href="#projects" class="btn">View Projects</x-link-button>
+            <x-link-button href="/resume/Ankiewicz_CV.pdf" class="btn-secondary">Download Resume</x-link-button>
         </div>
     </x-sections.section>
 
@@ -14,7 +20,7 @@
       
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 my-10">
           @foreach ($featuredProjects as $project )
-            <div class="bg-white flex flex-col justify-around rounded shadow p-6">
+            <div class="bg-white flex flex-col justify-around rounded shadow-md p-6 hover:scale-105 transition duration-300 hover:shadow-2xl">
               <h3 class="font-semibold text-lg">{{ $project->title }}</h3>
               <p class="text-sm text-gray-500 mb-3">{{ substr($project->description, 0, 70) }}</p>
               <a href="{{ $project->url_github }}" class="text-primary font-medium">View GitHub →</a>
@@ -31,9 +37,9 @@
         <ul class="flex flex-wrap justify-center gap-6 mt-8 text-center">
           <li class="bg-gray-200 rounded px-4 py-2">PHP</li>
           <li class="bg-gray-200 rounded px-4 py-2">Laravel</li>
-          <li class="bg-gray-200 rounded px-4 py-2">JavaScript</li>
           <li class="bg-gray-200 rounded px-4 py-2">WordPress</li>
           <li class="bg-gray-200 rounded px-4 py-2">SQL</li>
+          <li class="bg-gray-200 rounded px-4 py-2">JavaScript</li>
         </ul>
       </section>
 

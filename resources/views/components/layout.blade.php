@@ -12,8 +12,8 @@
     @vite (['resources/js/app.js'])
 </head>
 
-<body class="bg-bg-main text-text font-inter pb-20">
-    <div id="page" class="wrapper px-10">
+<body class="bg-bg-main text-text font-inter">
+    <div id="page" class="wrapper md:px-10 px-4">
         <x-skip-link />
         <x-header />
         <x-dev-buttons />
