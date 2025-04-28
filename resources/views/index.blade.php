@@ -1,10 +1,10 @@
 <x-layout>
     <x-sections.section id="hero">
-        <h1 class="text-4xl font-bold">Hi, I’m Karo — Creative Full-Stack Developer</h1>
+        <h1 class="text-4xl font-bold">Hi, I’m {{ $developer->full_name }} — Creative Full-Stack Developer</h1>
         <p class="text-xl mt-4 text-gray-600">From syntax to style, I build modern web experiences with Laravel, PHP & WordPress.</p>
         <div class="mt-6 flex justify-center gap-4">
             <a href="#projects" class="btn">View Projects</a>
-            <a href="/resume.pdf" class="btn-secondary">Download Resume</a>
+            <a href="/resume/Ankiewicz_CV.pdf" class="btn-secondary">Download Resume</a>
         </div>
     </x-sections.section>
 

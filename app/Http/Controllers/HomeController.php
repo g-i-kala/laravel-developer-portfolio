@@ -15,11 +15,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $developer = Developer::first();
         $projects = Project::latest()->with(['developer', 'tags'])->get();
         $featuredProjects = Project::latest()->with(['developer', 'tags'])->where('featured', true)->get();
 
+
+
         return view('index', [
-            'developer' => Developer::first(),
+            'developer' => $developer,
             'projects' => $projects, //paginate later
             'featuredProjects' => $featuredProjects,
             'tags' => Tag::all(),
