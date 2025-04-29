@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\TechStackType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,10 +10,9 @@ return new class () extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tech_stacks', function (Blueprint $table) {
+        Schema::create('tech_stack_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(TechStackType::class)->constrained();
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class () extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tech_stacks');
+        Schema::dropIfExists('tech_stack_types');
     }
 };

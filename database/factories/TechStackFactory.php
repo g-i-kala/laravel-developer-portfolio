@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\TechStackType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +19,7 @@ class TechStackFactory extends Factory
     {
         return [
            'name' => fake()->randomElement(['Html', 'Css','Laravel', 'PHP', 'JavaScript','SQL']),
-           'type' => fake()->randomElement(['front-end', 'back-end','full-stack']),
-           'icon' => fake()->randomElement(['square', 'triangle', 'circle']),
+           'tech_stack_type_id' => TechStackType::factory(),
         ];
     }
 }
