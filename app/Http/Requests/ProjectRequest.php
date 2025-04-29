@@ -12,7 +12,7 @@ class ProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,9 +28,11 @@ class ProjectRequest extends FormRequest
             'company' => ['required'],
             'location' => ['required'],
             'image' => ['required'],
+            'image_alt' => ['nullable'],
             'url_github' => ['required', 'active_url'],
-            'url_demo' => ['required', 'active_url'],
+            'url_demo' => ['nullable', 'active_url'],
             'tags' => ['nullable'],
+            'tech_stack' => ['nullable'],
             'featured' => ['required', 'boolean']
         ];
     }
@@ -45,6 +47,7 @@ class ProjectRequest extends FormRequest
             'url_github' => trim($this->input('url_github')),
             'url_demo' => trim($this->input('url_demo')),
             'tags' => $this->input('tags') ? implode(',', array_map('trim', explode(',', $this->input('tags')))) : null,
+            'tech_stack' => $this->input('tech_stack') ? implode(',', array_map('trim', explode(',', $this->input('tech_stack')))) : null,
             'featured' => $this->has('featured')
         ]);
     }

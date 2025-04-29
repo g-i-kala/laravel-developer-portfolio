@@ -22,6 +22,13 @@ class Project extends Model
         $this->tags()->syncWithoutDetaching($tag);
     }
 
+    public function techStack(string $name)
+    {
+        $techStack = TechStack::firstOrCreate(['name' => $name]);
+
+        $this->techStacks()->syncWithoutDetaching($techStack);
+    }
+
     // public function retag(array $tags)
     // {
     //     $tags = collect($tags)->map(function ($tag) {

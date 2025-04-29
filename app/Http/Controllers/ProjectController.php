@@ -49,11 +49,17 @@ class ProjectController extends Controller
     {
         $attributes = $request->validated();
 
-        $project = Auth::user()->developer->projects()->create(Arr::except($attributes, 'tags'));
+        $project = Auth::user()->developer->projects()->create(Arr::except($attributes, ['tags', 'tech_stack']));
 
         if ($attributes['tags'] ?? false) {
             foreach (explode(',', $attributes['tags']) as $tag) {
                 $project->tag($tag);
+            }
+        }
+
+        if ($attributes['tech_stack'] ?? false) {
+            foreach (explode(',', $attributes['tech_stack']) as $techStack) {
+                $project->techStack($techStack);
             }
         }
 
