@@ -23,4 +23,28 @@
     --font-space-grotesk: 'Space Grotesk', 'sans-serif';
     --font-fira-code: 'Fira Code', 'serif';
     --text-2xs: 0.625rem;
+
+    --animate-slide-in-left: slide-in-left 0.5s ease-in-out;
+    @keyframes slide-in-left {
+        0% {
+            transform: translateX(-100%); /* Start off the screen to the left */
+            opacity: 0; /* Optional: Fade in */
+          }
+          100% {
+            transform: translateX(0); /* End at its original position */
+            opacity: 1;
+          }
+    }
+
+    --animate-slide-in-right: slide-in-right 0.5s ease-in-out;
+    @keyframes slide-in-right {
+        0% {
+            transform: translateX(200%); /* Start off the screen to the left */
+            opacity: 0; /* Optional: Fade in */
+          }
+          100% {
+            transform: translateX(0); /* End at its original position */
+            opacity: 1;
+          }
+    }
 }
