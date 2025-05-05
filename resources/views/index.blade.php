@@ -1,6 +1,6 @@
 <x-layout>
     <x-sections.section id="hero">
-        <h1 class="text-2xl font-bold">Hi, I’m {{ $developer->full_name }} </h1>
+        <h1 class="text-2xl font-bold">Hi, I’m {{ $developer->full_name ?? 'Jane Doe'}} </h1>
         <h2 class="text-4xl font-bold">Creative Full-Stack Developer </h2>
         
         <div class="w-full sm:w-1/2 my-4">
