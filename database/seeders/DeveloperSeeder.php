@@ -19,7 +19,11 @@ class DeveloperSeeder extends Seeder
             ->each(function ($developer) {
                 // Attach 5 random skills to each developer
                 $skills = Skill::inRandomOrder()->limit(5)->get();  // Limit to 5 skills
-                $developer->skills()->attach($skills);
+                foreach ($skills as $skill) {
+                    $developer->skills()->attach($skill->id, [
+                        'level' => collect(['Beginner', 'Intermediate', 'Advanced'])->random(),
+                    ]);
+                }
             });
     }
 }

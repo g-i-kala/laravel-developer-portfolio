@@ -20,7 +20,6 @@ class DeveloperFactory extends Factory
     public function definition(): array
     {
         $user = User::factory()->create();
-        $skills = Skill::inRandomOrder()->take(5)->get();
 
         return [
             'user_id'    => $user->id,
