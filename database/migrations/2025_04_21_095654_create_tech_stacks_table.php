@@ -14,7 +14,6 @@ return new class () extends Migration {
         Schema::create('tech_stacks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignIdFor(TechStackType::class)->constrained();
             $table->timestamps();
         });
     }
