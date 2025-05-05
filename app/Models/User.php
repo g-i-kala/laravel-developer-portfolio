@@ -49,16 +49,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function employer(): HasOne
-    {
-        return $this->hasOne(Employer::class);
-    }
-
-    public function ownsJob($job)
-    {
-        return $this->employer && $this->employer->id === $job->employer_id;
-    }
-
     public function developer(): HasOne
     {
         return $this->hasOne(Developer::class);

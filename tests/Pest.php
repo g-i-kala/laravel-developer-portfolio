@@ -41,7 +41,8 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function login($user = null)
 {
-    // ..
+    $user = $user ?? \App\Models\User::factory()->hasDeveloper()->create();
+    return test()->actingAs($user);
 }
