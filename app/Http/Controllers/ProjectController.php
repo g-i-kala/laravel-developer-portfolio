@@ -6,13 +6,9 @@ use App\Models\Tag;
 use App\Models\Project;
 use App\Models\Developer;
 use Illuminate\Support\Arr;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
-use App\Http\Requests\JobRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProjectRequest;
-use App\Http\Requests\StoreJobRequest;
-use App\Http\Requests\UpdateJobRequest;
+use App\Models\TechStackType;
 
 class ProjectController extends Controller
 {
