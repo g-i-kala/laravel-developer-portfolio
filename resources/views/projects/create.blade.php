@@ -14,7 +14,7 @@
         <x-forms.input label="Url GitHub" name="url_github" />
         <x-forms.input label="Url Demo" name="url_demo" />
 
-        <x-forms.checkbox label="Feature (Costs Extra)" name="featured" />
+        <x-forms.checkbox label="Feature" name="featured" />
 
         <x-forms.input label="Tags (comma separated)" name="tags" />
         <x-forms.input label="Tech Stack (comma separated)" name="tech_stack" />

@@ -49,6 +49,12 @@ class ProjectController extends Controller
     {
         $attributes = $request->validated();
 
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filePath = $file->storeAs('images', $file->getClientOriginalName(), 'public');
+            $attributes['image'] = $filePath;
+        }
+
         $project = Auth::user()->developer->projects()->create(Arr::except($attributes, ['tags', 'tech_stack']));
 
         if ($attributes['tags'] ?? false) {
