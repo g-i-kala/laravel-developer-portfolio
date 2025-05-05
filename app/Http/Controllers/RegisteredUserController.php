@@ -49,7 +49,11 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create($userAttributes);
-        $logoPath = $request->avatar->store('logos');
+
+        if ($request->hasFile('avatar')) {
+            $filename = 'avatar_' . $developerAttributes['handle'] . '.' . $request->file('avatar')->extension();
+            $logoPath = $request->file('avatar')->storeAs('avatar', $filename, 'public');
+        };
 
         $user->developer()->create([
             'full_name' => $userAttributes['name'],
