@@ -10,9 +10,9 @@ class SearchController extends Controller
     {
         $projects = Project::query()
                     ->with(['developer', 'tags'])
-                    ->where('title', 'LIKE', '%' . request('q') . '%')
+                    ->where('description', 'LIKE', '%' . request('q') . '%')
                     ->get();
         // return $jobs; //get a json
-        return view('results', ['projects' => $projects]);
+        return view('results', compact('projects'));
     }
 }
