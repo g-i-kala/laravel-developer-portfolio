@@ -15,12 +15,12 @@
 </head>
 
 <body class="bg-bg-main text-text font-inter">
-    <div id="page" class="wrapper md:px-10 px-4">
+    <div id="page" class="flex flex-col min-h-screen wrapper md:px-10 px-4">
         <x-skip-link />
         <x-header />
         <x-dev-buttons />
 
-        <main id="content-wrapper" class="main mx-auto mt-10 max-w-[986px]">
+        <main id="content-wrapper" class="main mx-auto mt-10 max-w-[986px] flex-grow">
             {{ $slot }}
         </main>
         <x-backtotop />
