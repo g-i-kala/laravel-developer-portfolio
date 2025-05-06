@@ -1,9 +1,17 @@
 <x-layout>
     <x-page-heading>Create Project</x-page-heading>
 
-    <x-forms.form method="POST" action="/projects" enctype="multipart/form-data">
-        @csrf
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
+    <x-forms.form method="POST" action="/projects" enctype="multipart/form-data">
         <x-forms.input label="Title" name="title" />
         <x-forms.input label="Description" name="description" />
         <x-forms.input label="Company" name="company" />
@@ -22,6 +30,9 @@
         <x-forms.divider />
 
         <x-forms.input label="Image" name="image" type="file" />
+        @if ($errors->has('image'))
+            <p class="text-red-500 text-sm">{{ $errors->first('image') }}</p>
+        @endif
         <x-forms.input label="Image Alt Text" name="image_alt" />
 
         <x-forms.button>Create</x-forms.button>

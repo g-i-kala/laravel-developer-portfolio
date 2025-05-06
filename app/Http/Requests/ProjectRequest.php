@@ -29,7 +29,7 @@ class ProjectRequest extends FormRequest
             'description' => ['required'],
             'company' => ['required'],
             'location' => ['required'],
-            'image' => ['required', 'image', 'mimes:jpg,png,jpg,gif,webp', 'max:2048'],
+            'image' => ['required', 'image', 'mimes:jpg,png,jpg,gif,webp'],
             'image_alt' => ['nullable'],
             'url_github' => ['required', 'active_url'],
             'url_demo' => ['nullable', 'active_url'],

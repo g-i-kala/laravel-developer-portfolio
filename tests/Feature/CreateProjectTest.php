@@ -3,6 +3,8 @@
 use Illuminate\Http\UploadedFile;
 
 it('can create a project', function () {
+
+    $this->withoutExceptionHandling();
     $response = login()->post('/projects', [
       'title' => 'Sample Project',
       'description' => 'This is a sample project description.',
@@ -17,8 +19,10 @@ it('can create a project', function () {
       'featured' => true,
 ]);
 
-    // Assert that the response status is 201 (Created) or as expected
-    $response->assertStatus(201);
+    $response->assertRedirect('/');
+
+    // Assert that the session has the success message
+    $response->assertSessionHas('success', 'Project created successfully');
 
     // Optionally, check if the project exists in the database
     $this->assertDatabaseHas('projects', [
