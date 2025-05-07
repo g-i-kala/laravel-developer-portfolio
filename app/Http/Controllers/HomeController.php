@@ -17,9 +17,7 @@ class HomeController extends Controller
     {
         $developer = Developer::first();
         $projects = Project::latest()->with(['developer', 'tags'])->get();
-        $featuredProjects = Project::latest()->with(['developer', 'tags'])->where('featured', true)->get();
-
-
+        $featuredProjects = Project::latest()->with(['developer', 'tags', 'techStacks'])->where('featured', true)->get();
 
         return view('index', [
             'developer' => $developer,

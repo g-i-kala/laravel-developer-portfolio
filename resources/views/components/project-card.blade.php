@@ -19,19 +19,38 @@
         class="fixed inset-0 flex items-center justify-center z-50">
         {{-- Gray Backround --}}
         <div class='fixed inset-0 bg-gray-300 opacity-80'> </div>
-        <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full z-100"
+        <div class="relative bg-white p-2 md:p-6 rounded-lg shadow-xl max-w-2xl w-full z-100"
             @click.outside="showModal = false">
-            <h2 class="text-2xl font-semibold mb-2">{{ $project->title }}</h2>
-            <p class="mb-4">{{ $project->description }}</p>
-            <p><strong>Company:</strong> {{ $project->company }}</p>
-            <p><strong>Location:</strong> {{ $project->location }}</p>
-            <p class="mt-4">
-                <a href="{{ $project->url_github }}" class="text-blue-600 underline">GitHub Repo</a>
-                <span> | </span>
-                <a href="{{ $project->url_demo }}" class="text-blue-600 underline">Live Demo</a>
-            </p>
             <button @click="showModal = false"
-                class="mt-6 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">Close</button>
+                class="absolute top-2 right-2 md:right-4 md:top-4 hover:bg-bg-main text-sm font-semibold border-0 hover:cursor-pointer">[
+                X ]</button>
+
+            <h2 class="text-2xl font-semibold">{{ $project->title }}</h2>
+            <p class="mb-2 text-sm">deveoped for {{ $project->company }}</p>
+            <img src={{ asset('storage/' . $project->image) }} alt="{{ $project->image_alt }}" />
+
+            <div class="flex flex-col md:flex-row gap-2 justify-around items-center mt-4">
+
+                <div class="flex flex-col space-y-4 w-full md:w-3/4 mb-4">
+                    <p class="text-sm text-left"><strong>Location:</strong> {{ $project->location }}</p>
+                    <p class="mb-4">{{ $project->description }}</p>
+                    <ul class="flex gap-2 flex-wrap text-xs text-gray-600">
+                        @foreach ($project->techStacks as $tech)
+                            <li class="px-2 py-1 bg-gray-100 rounded">{{ $tech->name }}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="flex flex-row md:flex-col justify-center items-center gap-2 w-full md:w-1/4">
+
+                    <x-link-button href="{{ $project->url_github }}" class="w-1/2 md:w-full">GitHub
+                        Repo</x-link-button>
+                    <x-link-button href="{{ $project->url_demo }}" class="w-1/2 md:w-full">Live
+                        Demo</x-link-button>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

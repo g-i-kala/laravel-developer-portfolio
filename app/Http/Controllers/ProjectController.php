@@ -46,13 +46,9 @@ class ProjectController extends Controller
         {$attributes = $request->validated();
 
             if ($request->hasFile('image')) {
-                try {
-                    $file = $request->file('image');
-                    $filePath = $file->storeAs('images', uniqid().'_'.$file->getClientOriginalName(), 'public');
-                    $attributes['image'] = $filePath;
-                } catch (\Exception $e) {
-                    return back()->withErrors(['image' => 'The image failed to upload. Please try again.']);
-                }
+                $file = $request->file('image');
+                $filePath = $file->storeAs('images', uniqid().'_'.$file->getClientOriginalName(), 'public');
+                $attributes['image'] = $filePath;
             }
 
             $project = Auth::user()->developer->projects()->create(Arr::except($attributes, ['tags', 'tech_stack']));
