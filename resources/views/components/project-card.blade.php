@@ -13,12 +13,14 @@
         <a href="{{ $project->url_github }}" class="text-primary font-medium">GitHub →</a>
     </div>
 
-    <!-- Modal -->
+    {{-- Modal --}}
     <div x-show="showModal"
         x-transition
-        class="fixed inset-0 bg-bg-main bg-opacity-50 flex items-center justify-center z-50"
-        @click.away="showModal = false">
-        <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full">
+        class="fixed inset-0 flex items-center justify-center z-50">
+        {{-- Gray Backround --}}
+        <div class='fixed inset-0 bg-gray-300 opacity-80'> </div>
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-2xl w-full z-100"
+            @click.outside="showModal = false">
             <h2 class="text-2xl font-semibold mb-2">{{ $project->title }}</h2>
             <p class="mb-4">{{ $project->description }}</p>
             <p><strong>Company:</strong> {{ $project->company }}</p>

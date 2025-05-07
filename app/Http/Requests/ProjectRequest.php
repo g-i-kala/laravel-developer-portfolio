@@ -29,7 +29,7 @@ class ProjectRequest extends FormRequest
             'description' => ['required'],
             'company' => ['required'],
             'location' => ['required'],
-            'image' => ['required', 'image', 'mimes:jpg,png,jpg,gif,webp'],
+            'image' => ['required', 'image', 'mimes:jpg,png,jpg,gif,webp', 'max:2048'],
             'image_alt' => ['nullable'],
             'url_github' => ['required', 'active_url'],
             'url_demo' => ['nullable', 'active_url'],
@@ -58,10 +58,8 @@ class ProjectRequest extends FormRequest
 
     public function failedValidation(Validator $validator)
     {
-        throw new HttpResponseException(response()->json([
-          'success'   => false,
-          'message'   => 'Project Validation Errors',
-          'data'      => $validator->errors()
-        ], 400));
+        throw new HttpResponseException(
+            redirect()->back()->withErrors($validator)->withInput()
+        );
     }
 }

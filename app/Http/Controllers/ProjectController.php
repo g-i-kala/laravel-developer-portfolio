@@ -43,31 +43,31 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $attributes = $request->validated();
+        {$attributes = $request->validated();
 
-        if ($request->hasFile('image')) {
-            try {
-                $file = $request->file('image');
-                $filePath = $file->storeAs('images', uniqid().'_'.$file->getClientOriginalName(), 'public');
-                $attributes['image'] = $filePath;
-            } catch (\Exception $e) {
-                return back()->withErrors(['image' => 'The image failed to upload. Please try again.']);
+            if ($request->hasFile('image')) {
+                try {
+                    $file = $request->file('image');
+                    $filePath = $file->storeAs('images', uniqid().'_'.$file->getClientOriginalName(), 'public');
+                    $attributes['image'] = $filePath;
+                } catch (\Exception $e) {
+                    return back()->withErrors(['image' => 'The image failed to upload. Please try again.']);
+                }
             }
-        }
 
-        $project = Auth::user()->developer->projects()->create(Arr::except($attributes, ['tags', 'tech_stack']));
+            $project = Auth::user()->developer->projects()->create(Arr::except($attributes, ['tags', 'tech_stack']));
 
-        if ($attributes['tags'] ?? false) {
-            foreach (explode(',', $attributes['tags']) as $tag) {
-                $project->tag($tag);
+            if ($attributes['tags'] ?? false) {
+                foreach (explode(',', $attributes['tags']) as $tag) {
+                    $project->tag($tag);
+                }
             }
-        }
 
-        if ($attributes['tech_stack'] ?? false) {
-            foreach (explode(',', $attributes['tech_stack']) as $techStack) {
-                $project->techStack($techStack);
-            }
-        }
+            if ($attributes['tech_stack'] ?? false) {
+                foreach (explode(',', $attributes['tech_stack']) as $techStack) {
+                    $project->techStack($techStack);
+                }
+            }}
 
         return redirect('/')->with('success', 'Project created successfully');
     }

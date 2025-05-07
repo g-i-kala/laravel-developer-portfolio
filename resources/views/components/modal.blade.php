@@ -2,7 +2,7 @@
     x-show = "show"
     x-on:open-modal.window = "show = true"
     x-on:close-modal.window = "show = false"
-    x-on:keydown.escape.windwo = "show = false"
+    x-on:keydown.escape.window = "show = false"
 
     class='fixed z-50 inset-0'>
 
