@@ -82,9 +82,7 @@
         </p>
 
         <div class="max-w-3xl mx-auto mt-10 text-gray-700 text-lg">
-            <p>I started as a designer, fell in love with code, and never looked back. I enjoy building web applications
-                that blend beautiful UI with solid functionality. My current toolbox includes Laravel, PHP, Tailwind
-                CSS, and WordPress — but I’m always exploring new things.</p>
+            <p>{{ $developer->bio }}</p>
         </div>
     </section>
 
@@ -96,7 +94,7 @@
             <input type="text" placeholder="Your Name" class="w-full p-3 border rounded">
             <input type="email" placeholder="Email Address" class="w-full p-3 border rounded">
             <textarea placeholder="Your Message" class="w-full p-3 border rounded h-32"></textarea>
-            <button type="submit" class="btn w-full">Send Message</button>
+            <x-button type="submit" class="btn w-full">Send Message</x-button>
         </form>
     </section>
 

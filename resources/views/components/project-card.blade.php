@@ -27,7 +27,9 @@
 
             <h2 class="text-2xl font-semibold">{{ $project->title }}</h2>
             <p class="mb-2 text-sm">deveoped for {{ $project->company }}</p>
-            <img src={{ asset('storage/' . $project->image) }} alt="{{ $project->image_alt }}" />
+            <a href="{{ $project->url_demo }}">
+                <img src={{ asset('storage/' . $project->image) }} alt="{{ $project->image_alt }}" />
+            </a>
 
             <div class="flex flex-col md:flex-row gap-2 justify-around items-center mt-4">
 

@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Skill;
 use App\Models\SkillCategory;
 use Illuminate\Http\Request;
 
-class SkillController extends Controller
+class SkillCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $skillCategories = SkillCategory::with('skills')->get();
-
-        return view('skills.index', compact('skillCategories'));
+        return ('skillsow kategorie! do sekcji wyswietle tu');
     }
 
     /**
@@ -23,9 +20,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        $skillCategories = SkillCategory::with('skills')->get();
-
-        return view('skills.create', compact('skillCategories'));
+        return ('skillsow kategorie! formularz');
     }
 
     /**
@@ -33,13 +28,13 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        dd('tym zapisze je w bazie!');
+        dd('skillsy zapis');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Skill $skill)
+    public function show(SkillCategory $skillCategory)
     {
         //
     }
@@ -47,7 +42,7 @@ class SkillController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Skill $skill)
+    public function edit(SkillCategory $skillCategory)
     {
         //
     }
@@ -55,7 +50,7 @@ class SkillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Skill $skill)
+    public function update(Request $request, SkillCategory $skillCategory)
     {
         //
     }
@@ -63,7 +58,7 @@ class SkillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Skill $skill)
+    public function destroy(SkillCategory $skillCategory)
     {
         //
     }
