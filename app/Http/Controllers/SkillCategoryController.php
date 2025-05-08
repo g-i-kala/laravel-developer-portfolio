@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SkillCategory;
 use Illuminate\Http\Request;
+use App\Models\SkillCategory;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\SkillCategoryRequest;
 
 class SkillCategoryController extends Controller
 {
@@ -26,9 +28,11 @@ class SkillCategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SkillCategoryRequest $request)
     {
-        dd('skillsy zapis');
+        $attributes = $request->validated();
+        SkillCategory::create($attributes);
+        return redirect()->back();
     }
 
     /**
@@ -60,6 +64,7 @@ class SkillCategoryController extends Controller
      */
     public function destroy(SkillCategory $skillCategory)
     {
-        //
+        $skillCategory->delete();
+        return redirect()->back();
     }
 }

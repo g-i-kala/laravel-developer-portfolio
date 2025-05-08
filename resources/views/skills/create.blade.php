@@ -1,49 +1,48 @@
 <x-layout>
     <x-page-heading>Add Some Skills</x-page-heading>
 
+    {{-- Category Management --}}
+    <section class="mb-10">
+        <h2 class="text-xl font-semibold">Skill Categories</h2>
+        <x-forms.form method="POST" action="/skill-categories">
 
-    <div class="space-y-10 ">
-        <section class="text-center pt-16">
-            <h1 class="font-bold text-4xl">Things I use to build, debug, and ship projects.</h1>
-        </section>
+            <x-forms.input name="name" placeholder="New category name" class="input" />
+            <x-button>Add Category</x-button>
+            </x-froms.form>
 
-        <x-skillCategories.index :$skillCategories> </x-skillCategories.index>
-
-        <section class="pt-10">
-            <x-section-heading> Skills </x-section-heading>
-            <div class="flex flex-col gap-8 mt-6 ">
-                @foreach ($skills as $skill)
-                    <p> {{ $skill->name }} </p>
+            <ul class="mt-4 space-y-2">
+                @foreach ($skillCategories as $category)
+                    <li class="flex justify-between items-center">
+                        {{ $category->name }}
+                        <div class="space-x-2">
+                            <form method="POST" id="delete-form-{{ $category->id }}"
+                                action="/skill-categories/{{ $category->id }}">
+                                @csrf
+                                @method('DELETE')
+                                <x-button for="delete-form-{{ $category->id }}"
+                                    class="hover:bg-red-500">Delete</x-button>
+                            </form>
+                            {{-- Optional: Edit form inline --}}
+                        </div>
+                    </li>
                 @endforeach
-            </div>
-        </section>
+            </ul>
+    </section>
 
-    </div>
+    {{-- Skills Management --}}
+    <section>
+        <h2 class="text-xl font-semibold">Skills</h2>
+        <x-forms.form method="POST" action="/skills">
+            <x-forms.input name="name" placeholder="Skill name" class="input" />
+            <select name="skill_category_id" class="input">
+                @foreach ($skillCategories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            <x-button>Add Skill</x-button>
+        </x-forms.form>
 
+        {{-- Optionally list skills per category here --}}
+    </section>
 
-
-    <x-forms.form method="POST" action="/projects" enctype="multipart/form-data">
-        <x-forms.input label="Title" name="title" />
-        <x-forms.input label="Description" name="description" />
-        <x-forms.input label="Company" name="company" />
-        <x-forms.input label="Location" name="location" />
-
-        <x-forms.divider />
-
-        <x-forms.input label="Url GitHub" name="url_github" />
-        <x-forms.input label="Url Demo" name="url_demo" />
-
-        <x-forms.checkbox label="Feature" name="featured" />
-
-        <x-forms.input label="Tags (comma separated)" name="tags" />
-        <x-forms.input label="Tech Stack" name="tech_stack" />
-
-        <x-forms.divider />
-
-        <x-forms.input label="Image" name="image" type="file" />
-        <x-forms.input label="Image Alt Text" name="image_alt" />
-
-        <x-forms.button>Create</x-forms.button>
-        <x-link-button href="/" class="bg-gray-500">Cancel</x-link-button>
-    </x-forms.form>
 </x-layout>
