@@ -23,7 +23,8 @@ class SkillRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'skill_category_id' => ['required']
+            'skill_category_id' => ['required'],
+            'level' => ['required', 'integer', 'min:1', 'max:5']
         ];
     }
 }

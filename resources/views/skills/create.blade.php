@@ -32,15 +32,22 @@
     {{-- Skills Management --}}
     <section>
         <h2 class="text-xl font-semibold">Skills</h2>
-        <x-forms.form method="POST" action="/skills/create">
-            <x-forms.input name="name" placeholder="Skill name" class="input" />
-            <select name="skill_category_id" class="input">
-                @foreach ($skillCategories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    <x-forms.input hidden name="category_id" value={{ $category->id }} />
-                @endforeach
-            </select>
-            <x-button>Add Skill</x-button>
+        <x-forms.form method="POST" action="/skills/create" class="flex flex-col space-x-2">
+            <div class="flex flex-row">
+                <x-forms.input name="name" placeholder="Skill name" class="input" />
+                <select name="skill_category_id" class="input">
+                    @foreach ($skillCategories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        <x-forms.input hidden name="category_id" value={{ $category->id }} />
+                    @endforeach
+                </select>
+                <select name="level" class="input">
+                    @for ($i = 1; $i <= 5; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+            <x-button class="w-fit">Add Skill</x-button>
         </x-forms.form>
 
         <ul class="mt-4 space-y-2">

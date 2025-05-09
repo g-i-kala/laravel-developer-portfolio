@@ -15,7 +15,7 @@ return new class () extends Migration {
         Schema::create('developer_skill', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Developer::class);
-            $table->foreignIdFor(Skill::class);
+            $table->foreignIdFor(Skill::class)->constrained()->onDelete('cascade');
             $table->integer('level')->default('3');
             $table->timestamps();
         });

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SkillRequest;
 use App\Models\Skill;
-use App\Models\SkillCategory;
+use App\Models\Developer;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use App\Models\SkillCategory;
+use App\Http\Requests\SkillRequest;
 
 class SkillController extends Controller
 {
@@ -35,7 +37,8 @@ class SkillController extends Controller
     public function store(SkillRequest $request)
     {
         $attributes = $request->validated();
-        Skill::create($attributes);
+        $skill = Skill::create(Arr::except($attributes, 'level'));
+        Developer::first()->skills()->attach($skill->id, ['level' => $attributes['level']]);
         return redirect()->back();
     }
 
