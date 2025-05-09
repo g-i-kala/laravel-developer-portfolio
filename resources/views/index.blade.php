@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :$developer>
 
     <x-sections.hero :developer="$developer" />
 
@@ -82,7 +82,7 @@
         </p>
 
         <div class="max-w-3xl mx-auto mt-10 text-gray-700 text-lg">
-            <p>{{ $developer->bio }}</p>
+            <p>{{ $developer->bio ?? 'A regular country girl with a soft spot for coding.' }}</p>
         </div>
     </section>
 

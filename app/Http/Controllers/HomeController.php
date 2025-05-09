@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $developer = Developer::first();
+        $developer = Developer::with('user')->first();
         $projects = Project::latest()->with(['developer', 'tags'])->get();
         $featuredProjects = Project::latest()->with(['developer', 'tags', 'techStacks'])->where('featured', true)->get();
 
