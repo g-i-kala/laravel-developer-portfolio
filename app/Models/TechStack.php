@@ -5,12 +5,14 @@ namespace App\Models;
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class TechStack extends Model
 {
     use HasFactory;
+    use Prunable;
 
     public function projects(): BelongsToMany
     {
