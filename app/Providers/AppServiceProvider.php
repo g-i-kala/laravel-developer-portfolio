@@ -2,15 +2,17 @@
 
 namespace App\Providers;
 
-use App\Models\Job;
 use App\Models\Tag;
-use App\Policies\JobPolicy;
+use App\Models\Project;
+use App\Models\Developer;
+use App\Policies\ProjectPolicy;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     protected $policies = [
-        Job::class => JobPolicy::class
+        Project::class => ProjectPolicy::class
     ];
 
     /**
@@ -27,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Tag::unguard();
+        View::share('developer', Developer::with('user')->first());
     }
 }

@@ -24,7 +24,7 @@
             {{ $slot }}
         </main>
         <x-backtotop />
-        <x-footer :$developer />
+        <x-footer />
     </div>
 
 </body>

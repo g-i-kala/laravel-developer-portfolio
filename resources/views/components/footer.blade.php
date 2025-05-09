@@ -1,4 +1,3 @@
-@props(['developer'])
 <footer class="flex flex-col py-4 md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-text">
     <div class="flex items-center space-x-4">
         <x-menu-item href="#about" class="hover:text-primary transition">About</x-menu-item>

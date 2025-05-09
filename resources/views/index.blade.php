@@ -1,4 +1,4 @@
-<x-layout :$developer>
+<x-layout>
 
     <x-sections.hero :developer="$developer" />
 
