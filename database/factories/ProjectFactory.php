@@ -24,7 +24,7 @@ class ProjectFactory extends Factory
             'description'  => fake()->paragraph(4),
             'company'      => fake()->company(),
             'location'     => fake()->city(),
-            'image'        => 'https://source.unsplash.com/800x600/?code,dev,technology&' . rand(1, 1000),
+            'image'        => 'https://picsum.photos/id/' . rand(1, 1000) . '/600/300',
             'image_alt'    => fake()->sentence(3),
             'featured'     => fake()->boolean(30),
             'url_github'   => 'https://github.com/g-i-kala/' . Str::slug(fake()->words(3, true)),

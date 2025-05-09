@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SkillRequest;
 use App\Models\Skill;
 use App\Models\SkillCategory;
 use Illuminate\Http\Request;
@@ -31,9 +32,11 @@ class SkillController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SkillRequest $request)
     {
-        dd('tym zapisze je w bazie!');
+        $attributes = $request->validated();
+        Skill::create($attributes);
+        return redirect()->back();
     }
 
     /**
@@ -65,6 +68,7 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        $skill->delete();
+        return redirect()->back();
     }
 }

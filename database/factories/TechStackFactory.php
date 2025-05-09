@@ -19,7 +19,6 @@ class TechStackFactory extends Factory
     {
         return [
            'name' => fake()->randomElement(['Html', 'Css','Laravel', 'PHP', 'JavaScript','SQL']),
-           'tech_stack_type_id' => TechStackType::factory(),
         ];
     }
 }

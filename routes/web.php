@@ -14,9 +14,8 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/skills', [SkillController::class, 'index']);
 Route::get('/skills/create', [SkillController::class, 'create'])->middleware('auth');
-Route::post('/skills', [SkillController::class, 'store'])->middleware('auth');
-Route::patch('/skills/{id}', [SkillController::class, 'edit'])->middleware('auth');
-Route::delete('/skills/{id}', [SkillController::class, 'edit'])->middleware('auth');
+Route::post('/skills/create', [SkillController::class, 'store'])->middleware('auth');
+Route::delete('/skills/{skill}', [SkillController::class, 'destroy'])->middleware('auth');
 
 Route::post('/skill-categories', [SkillCategoryController::class, 'store'])->middleware('auth');
 Route::patch('/skill-categories/{skillCategory}', [SkillCategoryController::class, 'edit'])->middleware('auth');

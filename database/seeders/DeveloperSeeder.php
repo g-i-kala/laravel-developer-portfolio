@@ -21,7 +21,7 @@ class DeveloperSeeder extends Seeder
                 $skills = Skill::inRandomOrder()->limit(5)->get();  // Limit to 5 skills
                 foreach ($skills as $skill) {
                     $developer->skills()->attach($skill->id, [
-                        'level' => collect(['Beginner', 'Intermediate', 'Advanced'])->random(),
+                        'level' => collect([1,2,3,4,5])->random(),
                     ]);
                 }
             });

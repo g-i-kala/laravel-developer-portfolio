@@ -13,6 +13,14 @@ class Skill extends Model
 
     protected $fillable = ['name', 'skill_category_id'];
 
+    public const SKILL_LEVELS = [
+        1 => 'Beginner',
+        2 => 'Novice',
+        3 => 'Intermediate',
+        4 => 'Advanced',
+        5 => 'Expert',
+    ];
+
     public function category()
     {
         return $this->belongsTo(SkillCategory::class);

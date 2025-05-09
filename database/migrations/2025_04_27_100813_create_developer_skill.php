@@ -16,7 +16,7 @@ return new class () extends Migration {
             $table->id();
             $table->foreignIdFor(Developer::class);
             $table->foreignIdFor(Skill::class);
-            $table->enum('level', ['Beginner', 'Intermediate', 'Advanced'])->default('Beginner');
+            $table->integer('level')->default('3');
             $table->timestamps();
         });
     }
