@@ -6,15 +6,15 @@
         <x-menu-item href="#contact" class="hover:text-primary transition">Contact</x-menu-item>
     </div>
     <div class="flex items-center space-x-4">
-        <a href="{{ $developer->github }}" target="_blank" aria-label="GitHub"
+        <a href="{{ $developer->github ?? '' }}" target="_blank" aria-label="GitHub"
             class="hover:text-primary transition">
             <i class="fab fa-github fa-lg"></i>
         </a>
-        <a href="{{ $developer->linkedin }}" target="_blank" aria-label="LinkedIn"
+        <a href="{{ $developer->linkedin ?? '' }}" target="_blank" aria-label="LinkedIn"
             class="hover:text-primary transition">
             <i class="fab fa-linkedin fa-lg"></i>
         </a>
-        <a href="mailto:{{ $developer->user->email }}" aria-label="Email" class="hover:text-primary transition">
+        <a href="mailto:{{ $developer->user->email ?? '' }}" aria-label="Email" class="hover:text-primary transition">
             <i class="fas fa-envelope fa-lg"></i>
         </a>
     </div>

@@ -2,15 +2,17 @@
 <div x-data="{ showModal: false }">
     <!-- Project Card -->
     <div
-        class=" space-y-2 bg-bg-light flex flex-col justify-around rounded shadow-md p-6 hover:scale-105 transition duration-300 hover:shadow-2xl">
+        class=" space-y-2 bg-bg-light h-full flex flex-col justify-between rounded shadow-md p-6 hover:scale-105 transition duration-300 hover:shadow-2xl">
         <h3 class="font-semibold text-lg">{{ $project->title }}</h3>
         <p class="text-sm text-gray-500 mb-3">{{ Str::limit($project->description, 100) }}</p>
 
-        <x-button x-data @click="showModal = true"
-            class='mt-4 hover:bg-bg-main hover:cursor-pointer '>
-            Read More
-        </x-button>
-        <a href="{{ $project->url_github }}" class="text-primary font-medium">GitHub →</a>
+        <div class="flex flex-col space-y-4">
+            <x-button x-data @click="showModal = true"
+                class='mt-4 hover:bg-bg-main hover:cursor-pointer '>
+                Read More
+            </x-button>
+            <a href="{{ $project->url_github }}" class="text-primary font-medium">GitHub →</a>
+        </div>
     </div>
 
     {{-- Modal --}}
@@ -28,7 +30,7 @@
             <h2 class="text-2xl font-semibold">{{ $project->title }}</h2>
             <p class="mb-2 text-sm">deveoped for {{ $project->company }}</p>
             <a href="{{ $project->url_demo }}">
-                <img src={{ asset('storage/' . $project->image) }} alt="{{ $project->image_alt }}" />
+                <img src={{ $project->image }} alt="{{ $project->image_alt }}" />
             </a>
 
             <div class="flex flex-col md:flex-row gap-2 justify-around items-center mt-4">
