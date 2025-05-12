@@ -22,7 +22,7 @@ Route::patch('/skill-categories/{skillCategory}', [SkillCategoryController::clas
 Route::delete('/skill-categories/{skillCategory}', [SkillCategoryController::class, 'destroy'])->middleware('auth');
 
 
-Route::get('/projects/index', [ProjectController::class, 'index'])->middleware('auth');
+Route::get('/projects/index', [ProjectController::class, 'index']);
 Route::get('/projects/create', [ProjectController::class, 'create'])->middleware('auth');
 Route::post('/projects', [ProjectController::class, 'store'])->middleware('auth');
 Route::get('/projects/show', [ProjectController::class, 'show'])->middleware('auth');

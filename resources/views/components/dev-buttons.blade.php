@@ -16,10 +16,10 @@
             </form>
         </div>
     @endauth
-    @guest
+    {{-- @guest
         <div class="space-x-6 font-bold">
             <x-link-button href="/register">Sign Up</x-link-button>
             <x-link-button href="/login">Log In</x-link-button>
         </div>
-    @endguest
+    @endguest --}}
 </div>
