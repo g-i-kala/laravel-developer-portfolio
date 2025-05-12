@@ -16,9 +16,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        $skillCategories = SkillCategory::with('skills')->get();
-
-        return view('skills.index', compact('skillCategories'));
+        // Note: skillCategories data is provided by a view composer in AppServiceProvider
+        return view('skills.index');
     }
 
     /**
@@ -26,9 +25,8 @@ class SkillController extends Controller
      */
     public function create()
     {
-        $skillCategories = SkillCategory::with('skills')->get();
-
-        return view('skills.create', compact('skillCategories'));
+        // Note: skillCategories data is provided by a view composer in AppServiceProvider
+        return view('skills.create');
     }
 
     /**

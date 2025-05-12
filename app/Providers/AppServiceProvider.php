@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Tag;
 use App\Models\Project;
 use App\Models\Developer;
+use App\Models\SkillCategory;
 use App\Policies\ProjectPolicy;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -30,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Tag::unguard();
         View::share('developer', Developer::with('user')->first());
+        View::share('skillCategories', SkillCategory::with('skills')->get());
     }
 }

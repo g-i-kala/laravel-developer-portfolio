@@ -6,6 +6,8 @@
 
     <x-sections.tech-stack :techStacks="$techStacks" />
 
+    <x-sections.skills />
+
     <section id="skills" class="py-20">
         <h2 class="text-3xl font-bold text-center mb-4">Skills & Toolset</h2>
         <p class="text-center text-gray-600 mb-12">Things I use to build, debug, and ship projects.</p>

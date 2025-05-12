@@ -9,7 +9,5 @@
                 <x-skills.skill-category-card :$category />
             @endforeach
         </section>
-
-
     </div>
 </x-layout>
