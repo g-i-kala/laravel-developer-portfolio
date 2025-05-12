@@ -37,7 +37,17 @@
 
                 <div class="flex flex-col space-y-4 w-full md:w-3/4 mb-4">
                     <p class="text-sm text-left"><strong>Location:</strong> {{ $project->location }}</p>
-                    <p class="mb-4">{{ $project->description }}</p>
+
+                    @php
+                        $description = explode('.', $project->description);
+                    @endphp
+                    <ul class="">
+                        @foreach ($description as $item)
+                            @if (trim($item) !== '')
+                                <li class="text-left">-> {{ $item }}</li>
+                            @endif
+                        @endforeach
+                    </ul>
                     <ul class="flex gap-2 flex-wrap text-xs text-gray-600">
                         @foreach ($project->techStacks as $tech)
                             <li class="px-2 py-1 bg-gray-100 rounded">{{ $tech->name }}
