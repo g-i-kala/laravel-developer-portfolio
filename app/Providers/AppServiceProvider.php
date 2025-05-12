@@ -8,6 +8,7 @@ use App\Models\Developer;
 use App\Models\SkillCategory;
 use App\Policies\ProjectPolicy;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,7 +31,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Tag::unguard();
-        View::share('developer', Developer::with('user')->first());
-        View::share('skillCategories', SkillCategory::with('skills')->get());
+        if (Schema::hasTable('skill_categories')) {
+            View::share('skillCategories', SkillCategory::with('skills')->get());
+        }
+
+        if (Schema::hasTable('developers')) {
+            View::share('developer', Developer::with('user')->first());
+        }
     }
 }
