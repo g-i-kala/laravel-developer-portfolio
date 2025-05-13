@@ -1,13 +1,13 @@
 @props(['tag', 'size' => 'base'])
 
 @php
-    $classes = "bg-white/10 hover:bg-white/25 rounded-b-xl font-bold  transition-colors duration-300";
-    if ($size === 'base'){
-        $classes .= " px-5 py-1 text-sm";
+    $classes = 'bg-bg-light hover:bg-bg-dark transition-colors duration-300';
+    if ($size === 'base') {
+        $classes .= ' px-2 py-1 bg-bg-light text-xs text-muted';
     }
 
     if ($size === 'small') {
-        $classes .= " px-3 py-1 text-2xs";
+        $classes .= ' px-3 py-1 text-2xs';
     }
 @endphp
 

@@ -2,7 +2,7 @@
 <div x-data="{ showModal: false }">
     <!-- Project Card -->
     <div
-        class=" space-y-2 bg-bg-light h-full flex flex-col justify-between rounded shadow-md p-6 hover:scale-105 transition duration-300 hover:shadow-2xl">
+        class="space-y-2 bg-bg-light h-full flex flex-col justify-between rounded shadow-md p-6 hover:scale-105 transition duration-300 hover:shadow-2xl">
         <h3 class="font-semibold text-lg">{{ $project->title }}</h3>
         <p class="text-sm text-gray-500 mb-3">{{ Str::limit($project->description, 100) }}</p>
 
@@ -48,9 +48,9 @@
                             @endif
                         @endforeach
                     </ul>
-                    <ul class="flex gap-2 flex-wrap text-xs text-gray-600">
+                    <ul class="flex gap-2 flex-wrap text-xs text-muted">
                         @foreach ($project->techStacks as $tech)
-                            <li class="px-2 py-1 bg-gray-100 rounded">{{ $tech->name }}
+                            <li class="px-2 py-1 bg-bg-light">{{ $tech->name }}
                             </li>
                         @endforeach
                     </ul>
