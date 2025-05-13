@@ -11,4 +11,4 @@
     }
 @endphp
 
-<x-link-button href="/tags/{{ strtolower($tag->name) }}" class="{{ $classes }}">{{ $tag->name }}</x-link-button>
+<x-link-button href="/tags/{{ urlencode($tag->name) }}" class="{{ $classes }}">{{ $tag->name }}</x-link-button>
