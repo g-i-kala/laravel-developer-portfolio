@@ -7,7 +7,7 @@
         <p class="text-sm text-gray-500 mb-3">{{ Str::limit($project->description, 100) }}</p>
 
         <div class="flex flex-col space-y-4">
-            <x-button x-data @click="showModal = true"
+            <x-button x-data @click="showModal = true;  document.body.classList.add('overflow-hidden')"
                 class='mt-4 hover:bg-bg-main hover:cursor-pointer '>
                 Read More
             </x-button>
@@ -21,9 +21,9 @@
         class="fixed inset-0 flex items-center justify-center z-50">
         {{-- Gray Backround --}}
         <div class='fixed inset-0 bg-gray-300 opacity-80'> </div>
-        <div class="relative bg-white p-2 md:p-6 rounded-lg shadow-xl max-w-2xl w-full z-100"
-            @click.outside="showModal = false">
-            <button @click="showModal = false"
+        <div class="relative bg-white p-2 md:p-6 rounded-lg shadow-xl max-w-2xl w-full z-100 overflow-y-auto max-h-screen"
+            @click.outside="showModal = false;  document.body.classList.remove('overflow-hidden')">
+            <button @click="showModal = false;  document.body.classList.remove('overflow-hidden')"
                 class="absolute top-2 right-2 md:right-4 md:top-4 hover:bg-bg-main text-sm font-semibold border-0 hover:cursor-pointer">[
                 X ]</button>
 
