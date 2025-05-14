@@ -1,5 +1,5 @@
 <x-layout>
-    <x-page-heading>Results</x-page-heading>
+    <x-page-heading>Results for {{ request('q') }}</x-page-heading>
 
     <div class="space-y-6">
         @foreach ($projects as $project)
