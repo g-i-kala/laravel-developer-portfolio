@@ -26,7 +26,7 @@
             <input type="text" placeholder="Your Name" class="w-full p-3 border rounded">
             <input type="email" placeholder="Email Address" class="w-full p-3 border rounded">
             <textarea placeholder="Your Message" class="w-full p-3 border rounded h-32"></textarea>
-            <x-button type="submit" class="btn w-full">Send Message</x-button>
+            <x-button type="submit" class="w-full">Send Message</x-button>
         </form>
     </x-sections.section>
 

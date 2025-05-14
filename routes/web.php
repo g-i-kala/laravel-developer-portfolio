@@ -7,6 +7,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\TechStackController;
 use App\Http\Controllers\SkillCategoryController;
 use App\Http\Controllers\RegisteredUserController;
 
@@ -32,6 +33,8 @@ Route::patch('/projects/update/{project}', [ProjectController::class, 'update'])
 
 Route::get('/search', SearchController::class);
 Route::get('/tags/{tag:name}', TagController::class);
+
+Route::get('/techstacks/{techStack:name}', TechStackController::class);
 
 
 Route::middleware('guest')->group(function () {

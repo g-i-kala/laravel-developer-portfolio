@@ -5,7 +5,8 @@
 
     <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-6 mt-8 text-center">
         @foreach ($techStacks as $techStack)
-            <li class="rounded px-4 py-2">[ {{ $techStack->name }} ]</li>
+            <x-tech-stack :$techStack>[ {{ $techStack->name }} ]</x-tech-stack>
         @endforeach
     </ul>
+
 </x-sections.section>

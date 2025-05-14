@@ -1,5 +1,6 @@
+@props(['name'])
 <x-layout>
-    <x-page-heading>Results for {{ request('q') }}</x-page-heading>
+    <x-page-heading>Results for {{ request('q') ?? ($name ?? '') }}</x-page-heading>
 
     <div class="space-y-6">
         @foreach ($projects as $project)
