@@ -1,5 +1,5 @@
 @props(['techStacks'])
-<x-sections.section id="techstack" class="py-20">
+<x-sections.section id="techstack">
     <h2 class="text-3xl font-bold text-center">Tech Stack</h2>
     <p class="text-center mt-2 text-gray-600">Technologies I work with.</p>
 

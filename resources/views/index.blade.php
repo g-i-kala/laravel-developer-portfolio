@@ -8,7 +8,7 @@
 
     <x-sections.skills />
 
-    <section id="about" class="py-20">
+    <x-sections.section id="about">
         <h2 class="text-3xl font-bold text-center">About Me</h2>
         <p class="text-center mt-2 text-gray-600">I’m passionate about building creative and maintainable web systems.
         </p>
@@ -16,9 +16,9 @@
         <div class="max-w-3xl mx-auto mt-10 text-gray-700 text-lg">
             <p>{{ $developer->bio ?? 'A regular country girl with a soft spot for coding.' }}</p>
         </div>
-    </section>
+    </x-sections.section>
 
-    <section id="contact" class="py-20">
+    <x-sections.section id="contact">
         <h2 class="text-3xl font-bold text-center">Get In Touch</h2>
         <p class="text-center mt-2 text-gray-600">Have a project or just want to say hi? Let’s connect.</p>
 
@@ -28,6 +28,6 @@
             <textarea placeholder="Your Message" class="w-full p-3 border rounded h-32"></textarea>
             <x-button type="submit" class="btn w-full">Send Message</x-button>
         </form>
-    </section>
+    </x-sections.section>
 
 </x-layout>

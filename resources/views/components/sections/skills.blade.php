@@ -1,4 +1,4 @@
-<section id="skills" class="py-20">
+<x-sections.section id="skills">
     <h2 class="text-3xl font-bold text-center mb-4">Skills & Toolset</h2>
     <p class="text-center text-gray-600 mb-12">Things I use to build, debug, and ship projects.</p>
 
@@ -7,4 +7,4 @@
             <x-skills.skill-category-card :$category />
         @endforeach
     </div>
-</section>
+</x-sections.section>

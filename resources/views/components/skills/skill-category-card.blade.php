@@ -5,7 +5,7 @@
     </div>
     <ul class="flex flex-col my-4 list-disc">
         @foreach ($category->skills as $skill)
-            <li class="my-0.5 px-1"> {{ $skill->name }} </li>
+            <li class="my-0.5 px-1 text-left"> {{ $skill->name }} </li>
         @endforeach
     </ul>
 </div>
