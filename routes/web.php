@@ -32,9 +32,9 @@ Route::post('/projects/edit/{project}', [ProjectController::class, 'edit'])->mid
 Route::patch('/projects/update/{project}', [ProjectController::class, 'update'])->middleware('auth');
 
 Route::get('/search', SearchController::class);
-Route::get('/tags/{tag:name}', TagController::class);
+Route::get('/tags/{tag}', TagController::class)->name('tags.show');
 
-Route::get('/techstacks/{techStack:name}', TechStackController::class);
+Route::get('/techstacks/{techStack}', TechStackController::class)->name('techstack.show');
 
 
 Route::middleware('guest')->group(function () {
