@@ -11,7 +11,7 @@ class ContactFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,18 @@ class ContactFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'message' => ['required', 'string']
         ];
+    }
+
+    public function prepareForValidation(): void
+    {
+        $this->merge([
+            'name' => trim($this->input('name')),
+            'email' => trim($this->input('email')),
+            'message' => trim($this->input('message'))
+        ]);
     }
 }
