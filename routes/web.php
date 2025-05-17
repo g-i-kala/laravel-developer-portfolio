@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
@@ -36,6 +37,8 @@ Route::get('/tags/{tag}', TagController::class)->name('tags.show');
 
 Route::get('/techstacks/{techStack}', TechStackController::class)->name('techstack.show');
 
+Route::get('contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisteredUserController::class, 'create']); //this group ->middleware('guest') for each route
