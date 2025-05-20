@@ -18,16 +18,6 @@
         </div>
     </x-sections.section>
 
-    <x-sections.section id="contact">
-        <h2 class="text-3xl font-bold text-center">Get In Touch</h2>
-        <p class="text-center mt-2 text-gray-600">Have a project or just want to say hi? Let’s connect.</p>
-
-        <form class="max-w-xl mx-auto mt-10 space-y-6">
-            <input type="text" placeholder="Your Name" class="w-full p-3 border rounded">
-            <input type="email" placeholder="Email Address" class="w-full p-3 border rounded">
-            <textarea placeholder="Your Message" class="w-full p-3 border rounded h-32"></textarea>
-            <x-button type="submit" class="w-full">Send Message</x-button>
-        </form>
-    </x-sections.section>
+    <x-sections.contact />
 
 </x-layout>
