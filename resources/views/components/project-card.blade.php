@@ -30,7 +30,7 @@
             <h2 class="text-2xl font-semibold">{{ $project->title }}</h2>
             <p class="mb-2 text-sm">deveoped for {{ $project->company }}</p>
             <a href="{{ $project->url_demo }}">
-                <img src={{ $project->image }} alt="{{ $project->image_alt }}" />
+                <img class="shadow-xs shadow-muted" src={{ $project->image }} alt="{{ $project->image_alt }}" />
             </a>
 
             <div class="flex flex-col md:flex-row gap-2 justify-around items-center mt-4">
@@ -49,8 +49,9 @@
                         @endforeach
                     </ul>
                     <ul class="flex gap-2 flex-wrap text-xs text-muted">
-                        @foreach ($project->techStacks as $tech)
-                            <li class="px-2 py-1 bg-bg-light">{{ $tech->name }}
+                        @foreach ($project->techStacks as $techStack)
+                            <li>
+                                <x-tech-stack :$techStack class="border-none bg-bg-light" />
                             </li>
                         @endforeach
                     </ul>

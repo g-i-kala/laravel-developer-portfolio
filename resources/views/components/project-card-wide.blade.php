@@ -41,7 +41,7 @@
 
 
         <a href="{{ $project->url_demo }}" class="w-full">
-            <img src={{ $project->image }} alt="{{ $project->image_alt }}" />
+            <img class="shadow-xs shadow-muted" src={{ $project->image }} alt="{{ $project->image_alt }}" />
         </a>
 
         <div class="flex flex-col md:flex-row justify-center items-center gap-2 w-full text-center">
