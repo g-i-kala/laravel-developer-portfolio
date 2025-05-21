@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet">
     @vite (['resources/js/app.js'])
+    @cookieconsentscripts
 </head>
 
 <body class="bg-bg-main text-text font-inter">
@@ -26,7 +27,7 @@
         <x-backtotop />
         <x-footer />
     </div>
-
+    @cookieconsentview
 </body>
 
 </html>
