@@ -31,8 +31,9 @@
     <div class="flex flex-col w-full md:w-1/3 space-y-4">
         <div>
             <ul class="flex gap-2 flex-wrap text-xs text-gray-600">
-                @foreach ($project->techStacks as $tech)
-                    <li class="px-2 py-1 bg-bg-light">{{ $tech->name }}
+                @foreach ($project->techStacks as $techStack)
+                    <li>
+                        <x-tech-stack class="border-none bg-bg-light" :$techStack />
                     </li>
                 @endforeach
             </ul>

@@ -5,4 +5,4 @@
 @endphp
 
 <x-link-button href="{{ route('techstack.show', $techStack) }}"
-    class="{{ $classes }}">{{ $techStack->name }}</x-link-button>
+    {{ $attributes->merge(['class' => $classes]) }}>{{ $techStack->name }}</x-link-button>
