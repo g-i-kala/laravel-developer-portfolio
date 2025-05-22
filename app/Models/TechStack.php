@@ -18,7 +18,7 @@ class TechStack extends Model
     protected static function booted()
     {
         static::creating(function ($techStack) {
-            $techStack->slug = Str::slug($techStack('name'));
+            $techStack->slug = Str::slug($techStack->name);
         });
     }
 
