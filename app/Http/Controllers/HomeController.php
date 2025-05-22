@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Developer;
 use App\Models\Tag;
 use App\Models\Project;
+use App\Models\Developer;
 use App\Models\TechStack;
 use Illuminate\Http\Request;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\OpenGraph;
 
 class HomeController extends Controller
 {
