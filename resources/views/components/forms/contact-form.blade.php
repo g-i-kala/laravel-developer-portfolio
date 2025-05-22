@@ -1,4 +1,4 @@
-<div class="min-w-2xl">
+<div class="md:min-w-2xl">
     <h2 class="text-3xl font-bold text-center">Get In Touch</h2>
     <p class="text-center mt-2 text-gray-600">Have a project or just want to say hi? Let’s connect.</p>
     <x-forms.form method="POST" action="/contact" class="max-w-xl mx-auto mt-10 space-y-6">
