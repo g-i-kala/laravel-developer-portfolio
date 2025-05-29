@@ -27,3 +27,4 @@ app/Http/.DS_Store
 resources/views/.DS_Store
 .env.docker
 .env.testing
+docker-compose.yml
