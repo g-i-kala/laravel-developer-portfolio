@@ -10,6 +10,7 @@ use App\Policies\ProjectPolicy;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,5 +39,13 @@ class AppServiceProvider extends ServiceProvider
         if (Schema::hasTable('developers')) {
             View::share('developer', Developer::with('user')->first());
         }
+	
+	if (request()->header('X-Forwarded-Proto') === 'https') {
+		URL::forceScheme('https');
+	}
+	
+	if (app()->environment('production')) {
+		URL::forceScheme('https');
+	}
     }
 }

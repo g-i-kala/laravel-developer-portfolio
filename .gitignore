@@ -9,6 +9,7 @@
 .env
 .env.backup
 .env.production
+.env.testing
 .phpactor.json
 .phpunit.result.cache
 Homestead.json
@@ -26,5 +27,4 @@ app/.DS_Store
 app/Http/.DS_Store
 resources/views/.DS_Store
 .env.docker
-.env.testing
 docker-compose.yml
