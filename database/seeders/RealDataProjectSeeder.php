@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\Project;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RealDataProjectSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class RealDataProjectSeeder extends Seeder
             [
                 'developer_id' => 1,
                 'title' => 'Developer Portfolio',
-                'description' => 'Developed a comprehensive single page application in Laravel, focusing on showcasing skills as a full-stack developer. Implemented input sanitization and validation with Laravel Form Requests to ensure data integrity. Utilized Blade templating for organized and reusable views, enhancing maintainability and scalability. Integrated a tagging and techStack system with scheduled management. Implemented a contact form with Mailables. Used Alpine.js to provide Modal functionality in Projects browsing. Implemented a basic CMS for Projects, Skills, and TechStacks management. Deployed on LaravelCloud. Implemented cookie managemnet functionality.',
+                'description' => 'Developed a comprehensive single page application in Laravel, focusing on showcasing skills as a full-stack developer. Implemented input sanitization and validation with Laravel Form Requests to ensure data integrity. Utilized Blade templating for organized and reusable views, enhancing maintainability and scalability. Integrated a tagging and techStack system with scheduled management. Implemented a contact form with Mailables. Used Alpine.js to provide Modal functionality in Projects browsing. Implemented a basic CMS for Projects, Skills, and TechStacks management. Deployed on VPS. Implemented cookie managemnet functionality.',
                 'company' => 'KaroCreative Dev',
                 'location' => 'Remote',
                 'image' => 'https://karocreative.pl/wp-content/uploads/2025/05/developer_portfolio-scaled.webp',
@@ -166,24 +167,34 @@ class RealDataProjectSeeder extends Seeder
             ]
         ];
 
-        foreach ($projects as $projectData) {
-            $tags = $projectData['tags'];
-            $techStack = $projectData['tech_stack'];
-            unset($projectData['tags'], $projectData['tech_stack']);
+        DB::transaction(function () use ($projects) {
+            DB::statement('TRUNCATE TABLE projects RESTART IDENTITY CASCADE');
 
-            $project = Project::create($projectData);
+            foreach ($projects as $projectData) {
+                $tags = $projectData['tags'] ?? null;
+                $techStack = $projectData['tech_stack'] ?? null;
 
-            if ($tags) {
-                foreach (explode(',', $tags) as $tag) {
-                    $project->tag($tag);
+                unset($projectData['tags'], $projectData['tech_stack']);
+
+                $project = Project::create($projectData);
+
+                if ($tags) {
+                    $tags = array_filter(array_map('trim', explode(',', $tags)));
+
+                    foreach ($tags as $tag) {
+                        $project->tag($tag);
+                    }
+                }
+
+                if ($techStack) {
+                    $techStack = array_filter(array_map('trim', explode(',', $techStack)));
+
+                    foreach ($techStack as $tech) {
+                        $project->techStack($tech);
+                    }
                 }
             }
+        });
 
-            if ($techStack) {
-                foreach (explode(',', $techStack) as $tech) {
-                    $project->techStack($tech);
-                }
-            }
-        }
     }
 }
