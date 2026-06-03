@@ -28,5 +28,6 @@ app/Http/.DS_Store
 resources/views/.DS_Store
 .env.docker
 .env.local
+.env.seohost
 docker-compose.yml
 docker-compose-vps.yml
