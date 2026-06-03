@@ -19,7 +19,7 @@ class RealDataSeeder extends Seeder
 
             DB::table('skill_categories')->insert([
                 ['id' => 1, 'name' => '🔧 Back-End & Database', 'created_at' => $now, 'updated_at' => $now],
-                ['id' => 2, 'name' => '🎨 Front-End & UI', 'created_at' => $now, 'updated_at' => $now],
+                ['id' => 2, 'name' => '🎨 Front-End Development', 'created_at' => $now, 'updated_at' => $now],
                 ['id' => 3, 'name' => '🧰 Workflow & Dev Tools', 'created_at' => $now, 'updated_at' => $now],
                 ['id' => 4, 'name' => '📦 WordPress & CMS', 'created_at' => $now, 'updated_at' => $now],
                 ['id' => 5, 'name' => '🤖 AI in Development', 'created_at' => $now, 'updated_at' => $now],
@@ -28,50 +28,38 @@ class RealDataSeeder extends Seeder
 
             DB::table('skills')->insert([
                 [
-                    'name' => 'PHP (OOP, MVC), Laravel',
+                    'name' => 'PHP 7.4–8.2, OOP, MVC, Laravel, basic Symfony',
                     'skill_category_id' => 1,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Symfony – basics, currently learning',
+                    'name' => 'MySQL / PostgreSQL: schema design, indexing, query optimization',
                     'skill_category_id' => 1,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'MySQL, PostgreSQL – database design, query optimization, indexing',
+                    'name' => 'REST API development and integrations',
                     'skill_category_id' => 1,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'REST API – implementation and integrations, GraphQL – basics',
+                    'name' => 'Security basics: XSS, CSRF, SQL Injection',
                     'skill_category_id' => 1,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Testing: PHPUnit, Pest – basics',
-                    'skill_category_id' => 1,
-                    'created_at' => $now,
-                    'updated_at' => $now,
-                ],
-                [
-                    'name' => 'Security: XSS, CSRF, SQL Injection protection, basic hardening practices',
-                    'skill_category_id' => 1,
-                    'created_at' => $now,
-                    'updated_at' => $now,
-                ],
-                [
-                    'name' => 'Debugging and refactoring in complex codebases (legacy + new modules)',
+                    'name' => 'PHPUnit / Pest basics, debugging, refactoring',
                     'skill_category_id' => 1,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
 
                 [
-                    'name' => 'HTML5, CSS3, JavaScript (Vanilla JS, Alpine.js, Vue.js basics)',
+                    'name' => 'HTML5, CSS3, JavaScript, jQuery, Alpine.js, Vue.js basics',
                     'skill_category_id' => 2,
                     'created_at' => $now,
                     'updated_at' => $now,
@@ -83,11 +71,24 @@ class RealDataSeeder extends Seeder
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Responsive Web Design (RWD), basic WCAG and accessibility',
+                    'name' => 'WordPress Gutenberg block layouts',
                     'skill_category_id' => 2,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
+                [
+                    'name' => 'ACF integration and responsive layouts',
+                    'skill_category_id' => 2,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ],
+                [
+                    'name' => 'Responsive Web Design (RWD), WCAG and accessibility basics',
+                    'skill_category_id' => 2,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ],
+
                 [
                     'name' => 'Git, GitHub, GitLab, Bitbucket',
                     'skill_category_id' => 3,
@@ -107,43 +108,69 @@ class RealDataSeeder extends Seeder
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Team collaboration: code review, shared branches, feature branching',
+                    'name' => 'PHP version upgrades, migrations, application maintenance',
                     'skill_category_id' => 3,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Classic custom themes, simple plugins, hooks (actions/filters)',
+                    'name' => 'Code review, shared branches, feature branching',
+                    'skill_category_id' => 3,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ],
+
+                [
+                    'name' => 'WordPress custom themes and simple plugins',
                     'skill_category_id' => 4,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Gutenberg – block themes/layouts, ACF integration',
+                    'name' => 'Hooks: actions, filters, template customization',
                     'skill_category_id' => 4,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Optimizing WordPress site performance',
+                    'name' => 'WooCommerce',
                     'skill_category_id' => 4,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Using AI tools such as Claude, Copilot-like assistants, and Vibe Code',
+                    'name' => 'Advanced Custom Fields (ACF), CPT, WP REST API',
+                    'skill_category_id' => 4,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ],
+                [
+                    'name' => 'Oxygen Builder, Elementor',
+                    'skill_category_id' => 4,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ],
+
+                [
+                    'name' => 'Claude, Copilot-like tools, Cursor',
                     'skill_category_id' => 5,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'AI-assisted code analysis, refactoring suggestions, and work acceleration',
+                    'name' => 'AI-assisted code analysis and refactoring',
                     'skill_category_id' => 5,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Maintaining full understanding and control over the code while using AI tools',
+                    'name' => 'Test generation and workflow acceleration',
+                    'skill_category_id' => 5,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ],
+                [
+                    'name' => 'Used with full code understanding and control',
                     'skill_category_id' => 5,
                     'created_at' => $now,
                     'updated_at' => $now,
@@ -156,25 +183,25 @@ class RealDataSeeder extends Seeder
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Communication and effective teamwork',
+                    'name' => 'Strong communication and teamwork',
                     'skill_category_id' => 6,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'High level of independence and curiosity',
+                    'name' => 'Independence and curiosity',
                     'skill_category_id' => 6,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Strong motivation to learn and explore new technologies',
+                    'name' => 'Fast learner, open to new technologies',
                     'skill_category_id' => 6,
                     'created_at' => $now,
                     'updated_at' => $now,
                 ],
                 [
-                    'name' => 'Comfortable in both structured corporate environments and flexible freelance projects',
+                    'name' => 'Comfortable in corporate and freelance environments',
                     'skill_category_id' => 6,
                     'created_at' => $now,
                     'updated_at' => $now,
