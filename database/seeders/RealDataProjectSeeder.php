@@ -168,7 +168,17 @@ class RealDataProjectSeeder extends Seeder
         ];
 
         DB::transaction(function () use ($projects) {
-            DB::statement('TRUNCATE TABLE projects RESTART IDENTITY CASCADE');
+            $driver = DB::connection()->getDriverName();
+
+            if ($driver === 'mysql') {
+                DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+                DB::table('projects')->truncate();
+
+                DB::statement('SET FOREIGN_KEY_CHECKS=1');
+            } elseif ($driver === 'pgsql') {
+                DB::statement('TRUNCATE TABLE projects RESTART IDENTITY CASCADE');
+            }
 
             foreach ($projects as $projectData) {
                 $tags = $projectData['tags'] ?? null;

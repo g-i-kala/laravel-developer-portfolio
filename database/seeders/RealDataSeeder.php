@@ -13,7 +13,18 @@ class RealDataSeeder extends Seeder
     public function run(): void
     {
         DB::transaction(function () {
-            DB::statement('TRUNCATE TABLE skills, skill_categories RESTART IDENTITY CASCADE');
+            $driver = DB::connection()->getDriverName();
+
+            if ($driver === 'mysql') {
+                DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+                DB::table('skills')->truncate();
+                DB::table('skill_categories')->truncate();
+
+                DB::statement('SET FOREIGN_KEY_CHECKS=1');
+            } elseif ($driver === 'pgsql') {
+                DB::statement('TRUNCATE TABLE skills, skill_categories RESTART IDENTITY CASCADE');
+            }
 
             $now = now();
 
