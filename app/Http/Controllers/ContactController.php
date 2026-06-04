@@ -31,7 +31,7 @@ class ContactController extends Controller
     public function store(ContactFormRequest $request)
     {
         $emailData = $request->validated();
-        Mail::to(env('MAIL_TO_ADDRESS'))->send(new ContactFormSubmitted($emailData));
+        Mail::to(config('mail.to_address'))->send(new ContactFormSubmitted($emailData));
 
         return redirect()->back()->with('success', 'Message Sent');
     }
