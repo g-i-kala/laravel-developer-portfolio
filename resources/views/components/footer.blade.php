@@ -1,7 +1,7 @@
 <footer
     class="flex flex-col py-4 mb-2 mt-8 md:mt-12 md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-text">
     <div class="flex items-center space-x-4">
-        <x-menu-item {{ route('home') }}#about" class="hover:text-primary transition">About</x-menu-item>
+        <x-menu-item href="{{ route('home') }}#about" class="hover:text-primary transition">About</x-menu-item>
         <x-menu-item href="{{ route('home') }}#skills" class="hover:text-primary transition">Skills</x-menu-item>
         <x-menu-item href="{{ route('home') }}#projects" class="hover:text-primary transition">Projects</x-menu-item>
         <x-menu-item href="{{ route('home') }}#contact" class="hover:text-primary transition">Contact</x-menu-item>
