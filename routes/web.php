@@ -32,7 +32,7 @@ Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->mid
 Route::post('/projects/edit/{project}', [ProjectController::class, 'edit'])->middleware('auth');
 Route::patch('/projects/update/{project}', [ProjectController::class, 'update'])->middleware('auth');
 
-Route::get('/search', SearchController::class);
+Route::get('/search', SearchController::class)->name('tags.search');
 Route::get('/tags/{tag}', TagController::class)->name('tags.show');
 
 Route::get('/techstacks/{techStack}', TechStackController::class)->name('techstack.show');
