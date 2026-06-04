@@ -12,7 +12,7 @@ use App\Http\Controllers\TechStackController;
 use App\Http\Controllers\SkillCategoryController;
 use App\Http\Controllers\RegisteredUserController;
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/skills', [SkillController::class, 'index']);
 Route::get('/skills/create', [SkillController::class, 'create'])->middleware('auth');
