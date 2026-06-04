@@ -8,5 +8,5 @@
             <x-project-card :project='$project' />
         @endforeach
     </div>
-    <x-link-button href="/projects/index"> View all Projects </x-link-button>
+    <x-link-button href="{{ route('projects.index') }}"> View all Projects </x-link-button>
 </x-sections.section>
